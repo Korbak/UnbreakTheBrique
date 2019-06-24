@@ -17,15 +17,20 @@ Know more on https://internetcu.be or https://labriqueinter.net.
 
 ## What are these scripts for?
 
-### check-services.sh
+### check-services
 
 This script has to be launched hourly.
 It finds out if PHP or MySQL are down, and restart the services if so.
 Just place it in `/etc/cron.hourly`.
 
-### restart.sh
+### check-vpn
 
 This script is kind of a check-up for connexion issus.
 It is a daily script, and just restarts the VPN and hotspot services.
 Its point is to prevent them to crash and your Cube from a disconnect. And, of course, it prevents any loss of hotspot connexion, which is the point of the Internet Cube.
-You want this on to be in `/etc/cron.daily/`.
+You want this on to be in `/etc/cron.daily`.
+
+## How to use all of this?
+
+Just put the files in the proper folders and `chmod +x` both of them.
+Also, for any reboot of the Cube, you may want to manually launch them (check-vpn first, then check-services) so anything should be running fine.
