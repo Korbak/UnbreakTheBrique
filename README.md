@@ -1,4 +1,4 @@
-# UnbreakTheBrique
+# Unbreak The Brique
 
 Scripts to get Internet Cube back on rails with cron
 
