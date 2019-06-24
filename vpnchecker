@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -e
+
+echo "Cleaning the VPN conf..."
+
+if [ -f "/etc/yunohost/hooks.d/post_iptable_rules/90-vpnclient" ]
+then
+    echo "Backuping the old configuration file..."
+    mv /etc/yunohost/hooks.d/post_iptable_rules/90-vpnclient /home/korben/90-vpnclient.old
+else
+    echo "No existing conf - skipped"
+fi
+
+echo "Done !
+Reloading firewall..."
+
+yunohost firewall reload
+
+echo "Done !
+Restarting hotspot and VPN client..."
+
+service ynh-hotspot restart && service ynh-vpnclient restart
+
+echo "Done !
+Your IPv4 & IPv6 addresses are :"
+
+curl ip.yunohost.org
+echo ""
+curl ip6.yunohost.org
+echo ""

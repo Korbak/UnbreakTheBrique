@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function checker {
+    if (systemctl -q is-active $@)
+    then
+        echo "[$(date +%x+%X)] [CHECKING] $@ is UP" >> /var/log/service-checker
+    else
+        echo "[$(date +%x+%X)] [CHECKING] $@ is DOWN" >> /var/log/service-checker
+        systemctl restart php7.0-fpm.service
+        systemctl restart mysql.service
+        checker $@
+    fi
+}
+
+checker "php7.0-fpm.service"
+checker "mysql.service"
