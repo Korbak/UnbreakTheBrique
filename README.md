@@ -17,6 +17,10 @@ Know more on https://internetcu.be or https://labriqueinter.net.
 
 ## What are these scripts for?
 
+I came to understand that two situations are guilty of a lot of fails for Cube users. The first one is the VPN going crazy, the second one is the apps crashing because of MySQL going down. So I created two scripts for basic operations. Since, I've got no serious issue, and my Cube is just purring softly.
+
+I do hope that those two little creatures can help the Internet Cube to find its place in a lot of homes, because it actually is one of the best FOSS project, and it's really underrated.
+
 ### check-services
 
 This script has to be launched hourly.
